@@ -1,0 +1,53 @@
+//problem 1
+#include <stdio.h>
+
+int main (){
+
+	int number1, number2, printVal;
+	int counter = 18;
+
+	number1 = 0;
+	number2 = 1;
+
+	printf ("%i %4i", number1, number2);
+
+	while (counter>0){
+
+		printVal = number1 + number2;
+
+		number1 = number2;
+
+		number2 = printVal;
+
+		printf ("%7i", printVal);
+
+		counter--;
+
+	}
+
+	return 0;
+}
+
+//problem 2
+int main (){
+
+	setvbuf(stdout, NULL, _IONBF, 0);
+
+	int n, k =0;
+
+	printf ("Type your value here: \n");
+
+	scanf ("%i", &n);
+
+	while (n > 0){
+
+		n = n/2;
+
+		k++;
+
+	}
+
+	printf ("The nearest value is 2 to the power of %i", k);
+
+	return 0;
+}

@@ -1,0 +1,75 @@
+//problem 1
+#include <stdio.h>
+
+int main (){
+
+	setvbuf(stdout, NULL, _IONBF, 0);
+
+	char letter;
+	int count = 0;
+
+	printf ("Enter your word: \n");
+
+	do {
+		letter = getchar();
+		if (letter == 'a' || letter == 'A'){
+			count ++;
+		}
+	} while (letter != '\n');
+
+	printf("The 'a' character appears %i times", count);
+
+	return 0;
+}
+
+//problem 2
+#include <stdio.h>
+
+int main (){
+	setvbuf(stdout, NULL, _IONBF, 0);
+
+	char letter;
+
+	printf ("Enter some text here: \n");
+
+	do {
+		letter = getchar();
+		if (letter >= 97 && letter <= 122){
+			letter -= 32;
+		}
+		printf ("%c", letter);
+
+	} while (letter != '\n');
+
+	return 0;
+}
+
+//problem 3
+#include<stdio.h>
+
+int main(){
+
+	setvbuf (stdout, NULL, _IONBF, 0);
+
+	char ch;
+	int x=0;
+
+	printf("Please enter text: ");
+
+	do{
+		ch=getchar();
+
+		if(ch==' ' || ch=='\n'){
+
+			if(x!=0){
+				printf("%i \n",x);
+			}
+			x=0;
+		} else {
+			x++;
+
+		}
+	}while(ch!='\n');
+
+	return 0;
+	}

@@ -1,0 +1,158 @@
+//problem 1 & 2
+#include <stdio.h>
+
+int theSmallestElement (double arr[], int size){
+
+	double minVal = arr [0];
+	int i, min;
+
+	for (i = 1; i < size; i++){
+		if (minVal > arr [i]){
+			minVal = arr [i];
+			min = i+1;
+		}
+	}
+	return printf ("The smallest value is element # %i with value %.2lf \n", min, minVal);
+}
+
+double maxVal(int len, double arr[len][len]) {
+
+	double maxVal = arr [0][0];
+	int i, j, maxI, maxJ;
+
+	for (i = 0; i < len; i++){
+		for (j = 0; j < len; j++){
+			if (maxVal < arr [i][j]){
+				maxVal = arr [i][j];
+				maxI = i+1;
+				maxJ = j+1;
+			}
+		}
+	}
+	printf ("The element with coordinates (%i ; %i) has ", maxI, maxJ);
+	return maxVal;
+}
+
+
+int main (){
+
+	//Min val one dimention
+	int size = 5;
+	double arrMin[] = {5.25, 3.45, 8.42, 6.25, 7.64};
+
+	theSmallestElement (arrMin, size);
+
+	//Max val two dimensions
+
+	double arrMax[5][5] = {
+					{5.25, 3.45, 8.42, 6.25, 7.64},
+					{2.22, 5.65, 4.57, 5.68, 6.56},
+					{56.8, 47.2, 78.4, 25.6, 47.8},
+					{90.5, 4.22, 54.2, 6.55, 8.75},
+					{45.2, 58.6, 45.7, 56.1, 4.38}
+			};
+
+	double max = maxVal (size, arrMax);
+
+	printf ("the MAX value %.2lf \n", max);
+
+
+	return 0;
+}
+
+//problem 3
+#include <stdio.h>
+
+void printR (int len, double arr[]){
+
+	int i;
+	printf ("The original array is \n");
+
+	for (i = 0; i < len; i++){
+		printf ("%.2lf,  ", arr[i]);
+	}
+}
+
+double reverseR (int len, double arr[]){
+
+	double revArr[len];
+	int i, j = len-1;
+
+	for (i = 0; i <= j; i++){
+		revArr [i] = arr [j - i];
+	}
+
+	for (i = 0; i < len; i++){
+		arr [i] = revArr [i];
+		}
+
+	return arr[len];
+}
+
+int main () {
+
+	setvbuf(stdout, NULL, _IONBF, 0);
+
+	int size = 5, i;
+	double arr[] = {5.25, 3.45, 8.42, 6.25, 7.64};
+
+	printR (size, arr);
+
+	printf ("\n"
+			"Reverse is \n");
+
+	arr[5] = reverseR (size, arr);
+
+	for (i = 0; i < size; i++){
+		printf ("%.2lf,  ", arr[i]);
+		}
+	return 0;
+}
+
+//problem 4
+#include <stdio.h>
+
+void printArr (int row, int col, double arr[row][col]){
+
+	int i, j;
+
+	 for (i = 0; i < row; i++){
+		 for (j = 0; j < col; j++){
+			 printf ("%6.2lf", arr[i][j]);
+	 	 }
+	 		 printf ("\n");
+	 }
+ }
+
+ void transpose(int row, int col, double orig[row][col], double result[col][row]){
+
+	 int i, j;
+
+	 for (i = 0; i < col; i++){
+		 for (j = 0; j < row; j++){
+	 			 result[i][j] = orig [j][i];
+	 			 printf ("%6.2lf", result[i][j]);
+		 }
+	 		 printf ("\n");
+	 }
+ }
+
+ int main (){
+	 setvbuf(stdout, NULL, _IONBF, 0);
+	 int i, j, R = 2, C = 3;
+	 double arr [R][C];
+	 double finalArr [C][R];
+
+	 for (i = 0; i < R; i++){
+		 for (j = 0; j < C; j++){
+			 printf ("type element here  ");
+			 scanf ("%lf", &arr[i][j] );
+		 }
+	 }
+	 printArr (R, C, arr);
+	 printf ("\n");
+	 transpose(R, C, arr, finalArr);
+
+	 return 0;
+
+ }

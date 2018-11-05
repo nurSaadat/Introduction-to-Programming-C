@@ -1,0 +1,170 @@
+//ex1
+#include <stdio.h>
+
+int main (){
+	setvbuf(stdout, NULL, _IONBF, 0);
+
+	int array [12][12];
+	int i, j;
+
+	for (i = 0; i < 12; i++){
+		for (j = 0; j < 12; j++){
+			array [i][j] = i * j;
+		}
+	}
+
+	for (i = 1; i < 12; i++){
+		for (j = 1; j < 12; j++){
+			printf ("%5i", array [i][j]);
+		}
+		printf ("\n");
+	}
+	return 0;
+}
+
+//ex2
+#include <stdio.h>
+
+int main (){
+
+	int R = 3, C = 4;
+	int a[R][C];
+	int b[R][C];
+
+	int i, j, val = 100;
+
+	/* set matrix elements */
+	for (i = 0; i < R; i++) {
+		for (j = 0; j < C; j++) {
+			a[i][j] = val;
+			val++;
+		}
+	}
+
+	//create new array
+	for (i = 0; i < R; i++) {
+			for (j = 0; j < C; j++) {
+				b[i][j] = a[i][j];
+			}
+		}
+
+	//changing values
+	for (i = 0; i < R; i++) {
+			for (j = 0; j < C; j++) {
+				b[i][j] = b[i][j] + 25;
+			}
+		}
+
+	/* print matrix elements */
+	for (i = 0; i < R; i++) {
+		for (j = 0; j < C; j++) {
+			printf("%5d", b[i][j]);
+		}
+		printf("\n");
+	}
+
+	return 0;
+}
+//ex3
+#include <stdio.h>
+#include <stdlib.h>
+
+int main (){
+
+	int R = 5, C = 5;
+	int a[R][C];
+	int i, j, maxVal, maxI, maxJ;
+
+	maxVal = 0;
+
+	for (i = 0; i < R; i++) {
+			for (j = 0; j < C; j++) {
+				a[i][j] = rand () % 50;
+			}
+		}
+
+	for (i = 0; i < R; i++) {
+			for (j = 0; j < C; j++) {
+				printf ("%4i", a[i][j]);
+			}
+			printf ("\n");
+		}
+
+	for (i = 0; i < R; i++) {
+			for (j = 0; j < C; j++) {
+				if (maxVal < a [i][j]){
+					maxVal = a [i][j];
+					maxI = i + 1;
+					maxJ = j + 1;
+				}
+			}
+		}
+
+	printf ("Max value is %i with coordinates %i ; %i", maxVal, maxI, maxJ);
+	return 0;
+}
+
+//ex4
+#include <stdio.h>
+#include <stdlib.h>
+
+int main (){
+
+	int R = 3, C = 3;
+	int a[R][C];
+	int b[R][C];
+	int c[R][C];
+
+	int i, j, z, val;
+
+	//first array
+	for (i = 0; i < R; i++) {
+		for (j = 0; j < C; j++) {
+			a[i][j] =  rand () % 10;
+		}
+	}
+
+	//second array
+	for (i = 0; i < R; i++) {
+			for (j = 0; j < C; j++) {
+				b[i][j] =  rand () % 10;
+			}
+	}
+
+	//multiplication (third array created)
+	for (i = 0; i < R; i++) {
+		for (j = 0; j < C; j++) {
+			val = 0;
+			for (z = 0; z < R; z++){
+				val = val + a[i][z] * b[z][j];
+			}
+			c[i][j] =  val;
+		}
+	}
+
+	printf ("The first matrix \n");
+
+	for (i = 0; i < R; i++) {
+				for (j = 0; j < C; j++) {
+					printf ("%4i", a[i][j]);
+				}
+				printf ("\n");
+		}
+
+	printf ("The second matrix \n");
+	for (i = 0; i < R; i++) {
+				for (j = 0; j < C; j++) {
+					printf ("%4i", b[i][j]);
+				}
+				printf ("\n");
+		}
+
+	printf ("The product matrix \n");
+	for (i = 0; i < R; i++) {
+			for (j = 0; j < C; j++) {
+				printf ("%4i", c[i][j]);
+			}
+			printf ("\n");
+	}
+	return 0;
+}

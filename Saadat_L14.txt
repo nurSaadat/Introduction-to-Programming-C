@@ -1,0 +1,107 @@
+//ex1
+#include <stdio.h>
+
+typedef struct{
+	int hours;
+	int minutes;
+	char amORpm; /*'a' or 'p'*/
+} time;
+
+int main (void){
+
+	setvbuf(stdout, NULL, _IONBF, 0);
+
+	int hours, mins;
+	char aIp;
+
+	scanf ("%i %i %c", &hours, &mins, &aIp);
+
+	time now = {hours, mins, aIp};
+
+	printf ("Time now is %i : %i %c \n", now.hours, now.minutes, now.amORpm);
+
+	int advMins;
+
+	scanf("%i", &advMins);
+
+	now.minutes = now.minutes + advMins;
+
+	if (now.minutes >= 60){
+		now.hours = now.hours + (now.minutes / 60);
+		now.minutes = now.minutes % 60;
+	}
+
+
+	if (now.hours > 12 && now.amORpm == 'a'){
+		now.hours = now.hours % 12;
+		now.amORpm = 'p';
+	}
+
+	if (now.hours > 12 && now.amORpm == 'p'){
+			now.hours = now.hours % 12;
+			now.amORpm = 'a';
+		}
+
+	printf ("Time in %i minutes will be %i : %i %c \n", advMins, now.hours, now.minutes, now.amORpm);
+
+
+	return 0;
+}
+
+//ex2
+#include <stdio.h>
+
+typedef struct{
+	int ID;
+	char gender[1]; /*'m' or 'f'*/
+	int grade1;
+	int grade2;
+	int grade3;
+	int grade4;
+	int grade5;
+	int finalGrade;
+} student ;
+
+int main (void){
+
+	setvbuf(stdout, NULL, _IONBF, 0);
+
+	//name
+	printf("Type your name here: \n");
+	char name[30];
+
+	scanf ("%s", name);
+
+	printf ("Hello, %s \n", name);
+
+	student st;
+
+	//ID
+	printf("Type your ID here: \n");
+	scanf ("%i", &st.ID);
+
+	//gender
+	printf("Type your gender here: \n");
+	scanf ("%s", st.gender);
+
+	//grades
+	printf("Type your grades dividing by new line here: \n");
+	scanf ("%i \n", &st.grade1);
+	scanf ("%i \n", &st.grade2);
+	scanf ("%i \n", &st.grade3);
+	scanf ("%i \n", &st.grade4);
+	scanf ("%i", &st.grade5);
+
+
+	int sum;
+	sum = st.grade1 + st.grade2 + st.grade3 + st.grade4 + st.grade5;
+
+	//final
+	st.finalGrade = sum / 5;
+
+	printf ("Student %s with ID# %i has %i \n", name, st.ID, st.finalGrade);
+
+	return 0;
+
+}
+

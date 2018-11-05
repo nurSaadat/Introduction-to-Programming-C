@@ -1,0 +1,134 @@
+//problem 1
+
+#include <stdio.h>
+
+void stringCopy(char fromStr[], char toStr[]){
+	 int i;
+
+	 for (i = 0; i < 50; i ++){
+
+		 toStr[i] = fromStr[i];
+
+	 }
+}
+
+ int main (){
+	 setvbuf(stdout, NULL, _IONBF, 0);
+
+	 char fromStr [30] = "Philosophy and science";
+	 char toStr [30];
+
+	 stringCopy(fromStr, toStr);
+	 printf ("%s", toStr);
+
+	 return 0;
+
+ }
+
+
+//problem 2
+
+#include <stdio.h>
+
+_Bool areEqual(char str1[], char str2[]){
+	 _Bool equality;
+	 int i = 0;
+
+	 while (str1[i]!= '\0') {
+		 if (str1[i]== '\0' && str2[i]!= '\0'){
+			 equality = 0;
+		 }
+		 if (str1[i]!= '\0' && str2[i]== '\0'){
+			 equality = 0;
+		 }
+		 if (str1[i] == str2[i]){
+			 equality = 1;
+		 } else {
+			 equality = 0;
+		 }
+		 i++;
+	 }
+
+	return equality;
+}
+
+int main (){
+
+	char strA [50] = "Philosophy and science";
+	char strB [50] = "Philosophy and science";
+	char strC [100] = "Philosophy";
+
+	_Bool eq = areEqual (strA, strC);
+
+	_Bool eq = areEqual (strA, strC);
+
+	printf ("%i \n", eq);
+
+	return 0;
+}
+
+//problem 3
+
+#include <stdio.h>
+
+void concat (char str1[], char str2[], char resultStr[]){
+	int i = 0, j, k;
+	while (str1[i]!= '\0'){
+		i++;
+	}
+
+	stringCopy (str1, resultStr);
+
+	for (j = i, k = 0; j < 100, k < 50; j++, k++){
+		resultStr[j] = str2[k];
+	}
+
+}
+
+int main (){
+
+	char strA [50] = "Philosophy and science";
+	char strB [50] = "Philosophy and science";
+	char strC [100] = "Philosophy";
+
+	concat(strA, strB, strC);
+
+	printf ("%s \n", strC);
+
+	return 0;
+}
+
+//problem 4
+
+#include <stdio.h>
+
+void reverse(char fromStr[], char toStr[]){
+	int k = 0, i;
+
+	for (i = 0; i < 50; i++){
+		if (fromStr[i] != '\0'){
+			k++;
+		}
+	}
+	int j = k -1;
+	for (i = 0; i < k; i++){
+		toStr[j] = fromStr [i];
+		j--;
+		toStr[k] = '\0';
+	}
+
+
+}
+
+int main (){
+
+	char strA [50] = "Philosophy";
+	char strB [50];
+	reverse(strA, strB);
+
+	printf ("%s", strB);
+	return 0;
+}
+
+
+

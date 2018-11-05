@@ -1,0 +1,101 @@
+//problem 2
+#include <stdio.h>
+
+int main (){
+
+	setvbuf(stdout, NULL, _IONBF, 0);
+
+	int n, i;
+
+	printf("Enter value here: \n");
+	scanf ("%i", &n);
+
+	printf("This value is divisible by:");
+
+	for (i = 2; i < n; i++){
+		if (n % i == 0){
+			printf(" %i,", i);
+		}
+	}
+
+	return 0;
+}
+
+//problem 3
+int main() {
+	setvbuf(stdout, NULL, _IONBF, 0);
+
+	int dayNum;
+
+	scanf ("%i", &dayNum);
+
+	//not in the range
+	if (dayNum < 1 || dayNum > 366){
+		printf ("Error 404: Not Found");
+	} else {
+			printf ("It is ");
+
+		//day of the week
+		if (dayNum % 7 == 0){
+			printf ("Monday,");
+		}
+		if (dayNum % 7 == 1){
+			printf ("Tuesday,");
+		}
+		if (dayNum % 7 == 2){
+			printf ("Wednesday,");
+		}
+		if (dayNum % 7 == 3){
+			printf ("Thursday,");
+		}
+		if (dayNum % 7 == 4){
+			printf ("Friday,");
+		}
+		if (dayNum % 7 == 5){
+			printf ("Saturday,");
+		}
+		if (dayNum % 7 == 6){
+			printf ("Sunday,");
+		}
+
+
+		if (dayNum <=31){
+			printf (" January %i", dayNum);
+		}
+		if (dayNum > 31 && dayNum <= 60){
+			printf (" February %i", dayNum - 31);
+		}
+		if (dayNum > 60 && dayNum <= 91){
+			printf (" March %i", dayNum - 60);
+		}
+		if (dayNum > 91 && dayNum <= 121){
+			printf (" April %i", dayNum - 91);
+		}
+		if (dayNum > 121 && dayNum <= 152){
+			printf (" May %i", dayNum - 121);
+		}
+		if (dayNum > 152 && dayNum <= 182){
+			printf (" June %i", dayNum - 152);
+		}
+		if (dayNum > 182 && dayNum <= 213){
+			printf (" July %i", dayNum - 182);
+		}
+		if (dayNum > 213 && dayNum <= 244){
+			printf (" August %i", dayNum - 213);
+		}
+		if (dayNum > 244 && dayNum <= 274){
+			printf (" September %i", dayNum - 244);
+		}
+		if (dayNum > 274 && dayNum <= 305){
+			printf (" October %i", dayNum - 274);
+		}
+		if (dayNum > 305 && dayNum <= 335){
+			printf (" November %i", dayNum - 305);
+		}
+		if (dayNum > 335 && dayNum <= 366){
+			printf (" December %i", dayNum - 335);
+		}
+
+	}
+	return 0;
+}
