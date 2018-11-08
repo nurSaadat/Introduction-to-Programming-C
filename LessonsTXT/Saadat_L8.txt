@@ -1,0 +1,75 @@
+//problem 1
+#include <stdio.h>
+
+int main (){
+
+	setvbuf(stdout, NULL, _IONBF, 0);
+
+	int inputVal;
+
+	do {
+
+		printf ("Please enter an integer \n");
+
+		scanf("%i", &inputVal);
+
+		printf ("The number squared is %i \n", inputVal * inputVal);
+
+	} while (inputVal > 0);
+
+	printf ("Done.");
+
+	return 0;
+}
+
+//problem2
+
+int main (){
+
+	setvbuf(stdout, NULL, _IONBF, 0);
+
+	int octNum, decNum;
+	int k = 0;
+
+	printf ("Type your value here:");
+	scanf("%i", &decNum);
+	printf ("%i =", decNum);
+
+	do {
+		octNum = decNum % 8;
+		decNum = decNum / 8;
+
+		printf("+ ( %i * 8 ^ %i)", octNum, k);
+
+		k++;
+
+	} while (decNum > 0);
+
+	return 0;
+}
+//problem 3
+int main (){
+
+	setvbuf(stdout, NULL, _IONBF, 0);
+
+	int hexNum, decNum, base;
+	int k = 0;
+
+	printf ("Type your value here: \n");
+	scanf("%i", &decNum);
+	printf ("Type base: \n");
+	scanf ("%i", &base);
+	printf ("%i =", decNum);
+
+	do {
+		hexNum = decNum % base;
+		decNum = decNum / base;
+
+		printf("( %i * %i ^ %i) + ", hexNum, base, k);
+
+		k++;
+
+	} while (decNum > 0);
+
+	return 0;
+}

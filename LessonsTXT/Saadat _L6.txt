@@ -1,0 +1,114 @@
+//problem 1
+#include <stdio.h>
+
+int main (){
+
+	int degreeCelsius, degreeFahrenhait;
+
+	printf ("deg.Celsuis  deg.Fahrenhait \n");
+
+	for (degreeCelsius = -50; degreeCelsius <=40; degreeCelsius++){
+
+		degreeFahrenhait = degreeCelsius + 32;
+
+				printf ("%i  %15i  \n", degreeCelsius, degreeFahrenhait);
+	}
+	return 0;
+}
+
+//problem 2
+int main (void) {
+
+	int i, val = 2;
+	
+	for (i = 0; i < 16; i++){
+		
+		printf ("%i, ", val);
+		
+		val *= 2;	
+	}
+
+	    return 0;
+	}
+
+//problem 3
+int main (){
+
+	int count;
+	int workValue = 1;
+
+	printf ("n    2 to the nth power \n");
+
+		for (count=1; count<=16; count++){
+
+			 workValue *=2;
+
+			printf ("%5i %10i \n", count, workValue);
+
+		}
+
+	return 0;
+}
+
+//problem 4
+int main (){
+
+	int iStar, jStar, kStar;
+
+	for (iStar = 5; iStar >= 0; iStar--){
+
+		for (jStar = iStar; jStar > 0; jStar--){
+
+		printf ("*");
+
+		}
+
+		for (kStar = iStar; kStar < 5; kStar++){
+
+			printf ("+");
+		}
+
+		printf ("\n");
+	}
+	return 0;
+}
+
+//problem 5
+int main (void) {
+
+	int i, x, n, result = 1;
+
+	scanf ("%i %i", &x, &n);
+
+	for (i = 0; i < n; i++){
+
+		 result *= x;
+
+		 printf ("%i, ", result);
+	}
+
+	    return 0;
+	}
+
+//problem 6
+int main (void) {
+
+	int i, x, n, result = 1, sum = 0;
+
+	scanf ("%i %i", &x, &n);
+
+	for (i = 0; i < n; i++){
+
+		 result *= x;
+
+		 sum += result;
+
+		 printf ("%i, ", result);
+	}
+
+	printf ("\n %i", sum);
+
+	    return 0;
+	}
+
+
